@@ -183,7 +183,11 @@ LigandNexus/
 - Los **complejos metal–polifenol** son **semillas geométricas** para optimizar después
   con DFT, no predicciones termodinámicas. En modo polinuclear los metales quedan solo
   bidentados: hay que completarles la esfera de coordinación antes del cálculo.
-- Los datos provienen de **PubChem** (dominio público).
+- **Las licencias de los datos no son todas iguales.** La aplicación ofrece 20 fuentes:
+  **PubChem** es de dominio público, pero **ChEMBL** se distribuye bajo **CC BY-SA 3.0**
+  (exige atribución y compartir-igual) y otras restringen el uso comercial o piden
+  cuenta. La pestaña **Acerca** enlaza los términos de cada una, y quien exporte y
+  publique resultados es responsable de cumplirlos.
 
 ## 🔒 Seguridad y red
 

@@ -60,6 +60,7 @@ with st.sidebar:
     if st.button("🔄 Reiniciar sesión", width="stretch"):
         st.session_state.clear()
         st.rerun()
-    st.caption("Datos: PubChem (dominio público). Software libre · MIT.")
+    st.caption("Cada base de datos tiene sus propios términos de uso "
+               "(ver «Acerca»). Software libre · MIT.")
 
 pg.run()

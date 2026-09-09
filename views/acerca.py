@@ -17,9 +17,16 @@ def _tabla_fuentes():
     for e in _sources.REGISTRO:
         icono = {"api": "🟢", "local": "📁", "descarga": "⬇️"}.get(e["modo"], "•")
         filas.append({"": icono, "Base de datos": e["nombre"], "Categoría": e["cat"],
-                      "Descripción": e["desc"]})
+                      "Descripción": e["desc"], "Términos": e.get("url", "")})
     st.dataframe(pd.DataFrame(filas), hide_index=True, width="stretch",
-                 column_config={"": st.column_config.TextColumn(width="small")})
+                 column_config={"": st.column_config.TextColumn(width="small"),
+                                "Términos": st.column_config.LinkColumn(
+                                    display_text="consultar", width="small")})
+    st.warning("**Las licencias no son iguales.** PubChem es de dominio público, "
+               "pero ChEMBL se distribuye bajo CC BY-SA 3.0 (atribución y "
+               "compartir-igual) y otras restringen el uso comercial o exigen "
+               "cuenta. Revise los términos de la fuente que use antes de publicar "
+               "o redistribuir lo que exporte.", icon="⚖️")
     st.caption("¿Falta alguna? Si publica un volcado en SDF/SMILES/CSV, ya es usable con "
                "la opción **Archivo propio**.")
 
@@ -70,5 +77,9 @@ def render():
         "programa; `.xyz/.sdf/.mol` son para visualización.\n"
         "- La identificación de átomos coordinantes es una **heurística** química; "
         "para casos límite conviene el criterio del especialista.\n"
-        "- Los datos provienen de **PubChem** (dominio público); respete sus términos "
-        "de uso y el límite de ~5 peticiones/segundo (la app lo controla sola).")
+        "- **Cada base de datos tiene su propia licencia y usted es responsable de "
+        "respetarla.** PubChem es de dominio público, pero no todas lo son: ChEMBL "
+        "se distribuye bajo **CC BY-SA 3.0** (exige atribución y compartir-igual) y "
+        "varias restringen el uso comercial. Consulte los términos en el enlace de "
+        "cada fuente antes de publicar o redistribuir lo que exporte.\n"
+        "- La app respeta por sí sola el límite de ~5 peticiones/segundo de PubChem.")

@@ -1,0 +1,125 @@
+LigandNexus v0.2.5
+Cribado virtual de derivados moleculares y complejos metal-polifenol
+
+Trabajo de grado en química computacional
+
+
+CÓMO ABRIRLO
+------------
+1. Descomprima esta carpeta en cualquier ubicación (por ejemplo, el Escritorio).
+2. Haga doble clic en:   Iniciar_LigandNexus.bat
+3. Espere. La primera vez prepara un entorno propio e instala las librerías, lo
+   que puede tardar unos minutos y requiere internet. Las siguientes veces abre
+   la aplicación de inmediato.
+4. El navegador se abrirá solo, en   http://localhost:8501
+
+PARA CERRAR LA APLICACIÓN: cierre la ventana negra de consola.
+Cerrar solo la pestaña del navegador NO detiene el programa. Si vuelve a hacer
+doble clic con la aplicación ya corriendo, el lanzador lo detecta y le ofrece
+abrirla de nuevo, reiniciarla o salir.
+
+
+QUÉ NECESITA LA PRIMERA VEZ
+---------------------------
+- Windows con Python 3.10 o superior instalado. Si no lo tiene, descárguelo de
+  https://www.python.org/downloads/ y marque la casilla "Add Python to PATH"
+  durante la instalación.
+- Conexión a internet (para instalar las librerías y para consultar PubChem).
+
+Si su red bloquea la instalación, el lanzador ya contempla los proxys
+corporativos que rompen la verificación de certificados de pip.
+
+Si además su proxy rompe la conexión con PubChem, verá un error de certificado.
+En ese caso puede desactivar la verificación, asumiendo que los datos podrían
+llegar alterados, abriendo una consola y escribiendo antes de arrancar:
+
+    set LIGANDNEXUS_TLS_INSEGURO=1
+
+
+QUÉ HACE
+--------
+Cinco modos independientes, cada uno utilizable por separado:
+
+  Cribado general        Recupera derivados de una molécula base desde la base
+                         de datos que elija (PubChem, ChEMBL, COCONUT... o su
+                         propio archivo SDF/SMILES/CSV), los filtra por
+                         propiedades y los exporta a CSV o Excel.
+
+  Análisis de            Depura los derivados, clasifica los sustituyentes por
+  coordinación           grupo funcional y por posición respecto al átomo
+                         coordinante, y selecciona un conjunto representativo
+                         con balance donador/aceptor.
+
+  Metales + polifenoles  Coordinación de Fe(II)/Fe(III) y Cu(I)/Cu(II) por
+                         catecoles, galoílos, salicilatos e hidroxi-cetonas de
+                         flavonoides. Detecta los sitios quelantes reales,
+                         estima la especiación frente al pH y construye la
+                         geometría 3D del complejo —mononuclear o polinuclear—
+                         como semilla para DFT.
+
+  Átomos coordinantes    Identifica y numera los átomos donadores (N, O, S, P)
+                         de una molécula, coloreados por fuerza donadora.
+
+  Geometrías 3D          Pre-optimiza geometrías con campo de fuerzas, permite
+                         verlas en un visor interactivo y genera los archivos
+                         de entrada para Gaussian, ORCA o Psi4.
+
+Y en cualquier punto del cribado, un PERFIL ADMET calculado en local con RDKit:
+Lipinski, Veber, Egan, logBB de Clark para la barrera hematoencefálica, QED,
+SAscore y alertas PAINS, con filtros por cada criterio. Lo que quede filtrado en
+pantalla es lo que se exporta y lo que puede llevarse a Geometrías 3D.
+
+
+PARA EMPEZAR RÁPIDO
+-------------------
+Cribado general o Análisis de coordinación: introduzca el código de PubChem
+(CID) de una molécula conocida y pulse buscar. Por ejemplo:
+
+    1474     2,2'-bipiridina
+    1318     1,10-fenantrolina
+    1923     8-hidroxiquinolina
+
+Metales + polifenoles: el desplegable ya trae ocho polifenoles listos (ácido
+gálico, catecol, pirogalol, ácido protocatéquico, ácido elágico, ácido tánico,
+EGCG y quercetina). Elija uno, elija el metal y su estado de oxidación, y pulse
+"Construir complejo 3D". Con ligandos que tienen varios sitios —el ácido elágico
+tiene dos catecoles, el tánico tiene diez— puede usar el modo polinuclear, que
+pone un metal en cada sitio.
+
+En la carpeta examples/ hay archivos de salida de muestra.
+
+
+SOBRE LA VERIFICACIÓN
+---------------------
+La carpeta tests/ trae la verificación empírica de los motores: 224
+comprobaciones contra DATOS EXTERNOS, no contra el propio programa. Incluye
+denticidades experimentales de ligandos clásicos, distancias y ángulos
+cristalográficos, longitudes de enlace medidas, descriptores publicados de
+fármacos conocidos y el complejo Fe-galato del artículo de Zaccaron (2013).
+Se ejecuta con:
+
+    .venv\Scripts\python.exe tests\verificar_motores.py
+
+(el .venv lo crea el propio lanzador la primera vez).
+
+
+NOVEDADES DE ESTA VERSIÓN (v0.2.5)
+----------------------------------
+- El modo de metales sale de "en pruebas": son ahora cinco modos completos.
+- Panel ADMET disponible en cualquier punto del cribado.
+- Geometrías 3D acepta los conjuntos ya filtrados por ADMET.
+- Corregido: la pestaña Exportar podía entregar datos de una molécula anterior,
+  y el botón de descargar el Excel desaparecía al pulsarlo.
+- Corregido: el ácido elágico de los ejemplos era un regioisómero (misma
+  fórmula, pero con los OH de un anillo corridos una posición).
+- El lanzador .bat, reparado: la versión anterior no llegaba a arrancar nunca.
+
+
+NOTA SOBRE EL NOMBRE
+--------------------
+La herramienta se llamaba LigandForge. Se renombró a LigandNexus porque el
+nombre anterior ya estaba en uso por otro programa con funciones parecidas.
+
+
+Licencia MIT. Se apoya en RDKit, PubChem y Streamlit, citados con su DOI en la
+pestaña "Acerca de" de la propia aplicación.

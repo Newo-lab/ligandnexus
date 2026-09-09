@@ -1,0 +1,19 @@
+# El lanzador de Windows tiene que quedarse en CRLF pase lo que pase.
+# cmd.exe no interpreta bien un .bat con saltos LF, y este archivo ya se rompió
+# una vez por un problema de codificación: el README explica por qué debe ir en
+# ASCII puro, con CRLF y con los paréntesis escapados dentro de los `echo`.
+*.bat text eol=crlf
+
+# El resto de archivos de texto, normalizados a LF en el repositorio.
+*.py    text eol=lf
+*.md    text eol=lf
+*.txt   text eol=lf
+*.cff   text eol=lf
+*.toml  text eol=lf
+*.spec  text eol=lf
+
+# Binarios y salidas de ejemplo: que git no toque los saltos de línea.
+*.png   binary
+*.jpg   binary
+*.zip   binary
+*.xlsx  binary

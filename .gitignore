@@ -1,0 +1,80 @@
+# Entornos y cachés
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Secretos de Streamlit (nunca deben viajar)
+.streamlit/secrets.toml
+
+# Salidas del propio programa
+*.xlsx
+*.zip
+build/
+dist/
+
+# Capturas y registros del empaquetado
+packaging/_shot_*.png
+packaging/_test_*.png
+packaging/*.log
+run_live.log
+
+# Carpetas y archivos de trabajo: auditorías, respaldos y copias previas a editar.
+# Aquí las copias de seguridad se hacen con sufijo (README.md.pre_repo,
+# verificar_motores.py.pre_st158), así que hay que excluirlas por patrón.
+_trabajo_*/
+_backup_*/
+_DESCARTADO_*/
+*.pre_*
+*.bak
+*.orig
+*.rej
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Añadido tras la auditoría de seguridad del 2026-09-08 ────────────────────
+
+# Variables de entorno. Es el archivo que más credenciales filtra en GitHub;
+# no había ninguna regla que lo cubriera.
+.env
+.env.*
+!.env.example
+secrets.toml
+
+# Llaves y certificados
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# Entornos virtuales con otros nombres habituales
+env/
+ENV/
+.conda/
+
+# Editores
+.vscode/
+.idea/
+*.code-workspace
+
+# Cachés y empaquetado de Python
+.mypy_cache/
+.ruff_cache/
+.eggs/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Salidas del programa (simétrico con *.xlsx, que ya estaba). Si algún día un
+# .csv hace falta como dato de prueba, se añade a mano con: git add -f ruta.csv
+*.csv
+
+# Archivos de bloqueo que deja Office al abrir un libro
+~$*

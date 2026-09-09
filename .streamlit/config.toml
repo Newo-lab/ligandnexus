@@ -1,0 +1,18 @@
+[theme]
+base = "dark"
+primaryColor = "#4a9fd4"
+backgroundColor = "#0e1117"
+secondaryBackgroundColor = "#1a1f2b"
+textColor = "#e6e9ef"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+headless = true
+# Nunca 0.0.0.0: la aplicacion no tiene autenticacion, y el valor por
+# defecto de Streamlit (address = None) la expone a toda la red local.
+address = "127.0.0.1"
+# 200 MB por defecto es excesivo para un SDF; se decodifica entero en RAM.
+maxUploadSize = 25

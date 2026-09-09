@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "Si usa LigandNexus en un trabajo, por favor cítelo así."
+title: "LigandNexus: cribado virtual de derivados moleculares a partir de PubChem"
+abstract: >-
+  Herramienta de software libre que automatiza el cribado virtual de derivados
+  de una molécula base: recupera los derivados desde PubChem, ChEMBL o COCONUT
+  (o desde un archivo propio), los depura con cinco filtros quimioinformáticos,
+  clasifica los sustituyentes por grupo funcional y por posición respecto al
+  átomo coordinante, selecciona un subconjunto representativo con balance
+  donador/aceptor, perfila las moléculas con reglas ADMET y genera geometrías
+  tridimensionales con los archivos de entrada para Gaussian, ORCA y Psi4.
+  Incluye un modo para complejos de hierro y cobre con polifenoles. Todo se
+  opera desde una interfaz web, sin programar.
+type: software
+authors:
+  - family-names: "Molina Molina"
+    given-names: "Owen Didier"
+version: "0.2.5"
+date-released: "2026-09-08"
+license: MIT
+repository-code: "https://github.com/Newo-lab/ligandnexus"
+url: "https://github.com/Newo-lab/ligandnexus"
+keywords:
+  - cribado virtual
+  - quimioinformática
+  - química computacional
+  - química de coordinación
+  - RDKit
+  - PubChem
+  - ADMET
+  - enfermedad de Alzheimer

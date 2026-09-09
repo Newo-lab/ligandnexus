@@ -17,6 +17,14 @@ authors:
     given-names: "Owen Didier"
 version: "0.2.5"
 date-released: "2026-09-08"
+doi: "10.5281/zenodo.22677913"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22677913"
+    description: "DOI de concepto: apunta siempre a la última versión"
+  - type: doi
+    value: "10.5281/zenodo.22677914"
+    description: "DOI de la versión 0.2.5"
 license: MIT
 repository-code: "https://github.com/Newo-lab/ligandnexus"
 url: "https://github.com/Newo-lab/ligandnexus"

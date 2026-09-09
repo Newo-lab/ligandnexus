@@ -2,6 +2,8 @@
 
 > Cribado virtual de derivados moleculares a partir de PubChem — versión **0.2.5**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22677913.svg)](https://doi.org/10.5281/zenodo.22677913)
+
 **LigandNexus** recupera los **derivados** de una molécula base desde **PubChem**, los
 depura y los prepara para estudios computacionales. Está pensado para usarse **sin
 programar**: la interfaz web expone todo como controles.
@@ -219,7 +221,11 @@ LigandNexus/
 ## ✍️ Cómo citar
 
 > O. Molina. *LigandNexus: cribado virtual de derivados moleculares a partir de
-> PubChem*, v0.2.5, 2026. <https://github.com/Newo-lab/ligandnexus>
+> PubChem*, v0.2.5, Zenodo, 2026. <https://doi.org/10.5281/zenodo.22677913>
+
+Ese es el **DOI de concepto**: apunta siempre a la última versión, así que no
+envejece. Para reproducir un resultado con esta versión exacta, cite el **DOI de
+versión** de la v0.2.5: <https://doi.org/10.5281/zenodo.22677914>.
 
 El archivo [`CITATION.cff`](CITATION.cff) lleva estos mismos datos en el formato
 que GitHub y Zenodo entienden.
